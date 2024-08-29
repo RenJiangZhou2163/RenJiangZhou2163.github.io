@@ -1,0 +1,26 @@
+This file contains the OPENPGP public keys of Huawei.
+
+Type   Bits/KeyID     Date                 User ID
+pub    2048/27a74824  2013-12-30 09:34:54	uid    OpenPGP signature key for Huawei software (created on 30th Dec,2013) <support@huawei.com>
+
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v2.0.19 (GNU/Linux)
+
+mQENBFLBPjsBCACtQyXqecsm1a3GvRoPHpfrB9ITrYeN0vfSFlJeL4esOgQuA5l3
+ILTS9bdGH9OsLuWnryVcGVRVHrpmjhuqSJycYPn/3VXtUWMm27zVSHrKhOTmm3z2
+rIeuOdJzaKpgwtkwRzeuutDPW8GqpwRQaGEOGLNcMv+FRYdjmtVru6SKcC7zjhfY
+2/TIj4nGGVCP+ebjQGoLBMjC2o9fJi+UV5IxHnB896YpcRKs+JTaV5KSnQ8fG23D
+lDofBgwrl9icaNXm17bPx2WYRutaURS6HKh17Vffv4T4t3BoaKj0xE/cF761FPrD
+NIFxSpRqQ3As4kS3UOUFg1/5NUBkev4MI5ifABEBAAG0WU9wZW5QR1Agc2lnbmF0
+dXJlIGtleSBmb3IgSHVhd2VpIHNvZnR3YXJlIChjcmVhdGVkIG9uIDMwdGggRGVj
+LDIwMTMpIDxzdXBwb3J0QGh1YXdlaS5jb20+iQE3BBMBAgAhBQJSwT47AhsDBgsJ
+CAcDAgYVCAIJCgsDFgIBAh4BAheAAAoJEJmtgd8np0gk0GQIAIJKdFLMivJdxlS8
+INxZHejGaqToh9GqK1u6HQ3Hp59OKRPINBgd61NFuuOwcO0WqBArXfGLLQpBSWLa
+5cIOHrEi+Pq2XkdxL3hZhnw/G/GHIHJTjIHNamTikalCz4B+BcsQ0UnFVKZDTkBA
+F9a9Md21dJsgzEaAyqpozd1MKsed4Jcj7gY75L/DSWDdPEfeJCQ1j5RQpxbDn4sg
+KiZU314DCz8+Iiz30c3l+WHryYC+g1gMeRWKYlS1waltoqpKJeb5b6VEarJKDJXm
+LkV3kCmB8AMq8yS0y92uBR58WNlxw37o01grXaQMvTl7GkBQ20xLFHvIdU9UUzVX
+86Xyy7A=
+=0zUT
+-----END PGP PUBLIC KEY BLOCK-----
+
