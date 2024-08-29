@@ -1,0 +1,53 @@
+# CentOS-Base.repo
+#
+# The mirror system uses the connecting IP address of the client and the
+# update status of each mirror to pick mirrors that are updated to and
+# geographically close to the client.  You should use this for CentOS updates
+# unless you are manually picking other mirrors.
+#
+# If the mirrorlist= does not work for you, as a fall back you can try the
+# remarked out baseurl= line instead.
+#
+#
+
+[os]
+name=Qcloud centos-vault os - $basearch
+baseurl=http://mirrors.tencent.com/centos-vault/7.9.2009/os/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=http://mirrors.tencent.com/centos-vault/RPM-GPG-KEY-CentOS-7
+
+[updates]
+name=Qcloud centos-vault updates - $basearch
+baseurl=http://mirrors.tencent.com/centos-vault/7.9.2009/updates/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=http://mirrors.tencent.com/centos-vault/RPM-GPG-KEY-CentOS-7
+
+[centos-vaultplus]
+name=Qcloud centos-vaultplus - $basearch
+baseurl=http://mirrors.tencent.com/centos-vault/7.9.2009/centos-vaultplus/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=http://mirrors.tencent.com/centos-vault/RPM-GPG-KEY-CentOS-7
+
+[cr]
+name=Qcloud centos-vault cr - $basearch
+baseurl=http://mirrors.tencent.com/centos-vault/7.9.2009/cr/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=http://mirrors.tencent.com/centos-vault/RPM-GPG-KEY-CentOS-7
+
+[extras]
+name=Qcloud centos-vault extras - $basearch
+baseurl=http://mirrors.tencent.com/centos-vault/7.9.2009/extras/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=http://mirrors.tencent.com/centos-vault/RPM-GPG-KEY-CentOS-7
+
+[fasttrack]
+name=Qcloud centos-vault fasttrack - $basearch
+baseurl=http://mirrors.tencent.com/centos-vault/7.9.2009/fasttrack/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=http://mirrors.tencent.com/centos-vault/RPM-GPG-KEY-CentOS-7
