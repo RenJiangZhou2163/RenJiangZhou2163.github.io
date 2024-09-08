@@ -1,0 +1,1320 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="renjiangzhou@163.com">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>什么是 Azure ExpressRoute - 网络之路</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.35f28582.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="网络之路" class="md-header__button md-logo" aria-label="网络之路" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            网络之路
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              什么是 Azure ExpressRoute
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/RenJiangZhou2163/personal-knowledge-base" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    RenJiangZhou2163/personal-knowledge-base
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/DNS/%E8%A7%A3%E6%9E%90%E8%AE%B0%E5%BD%95%E8%A7%84%E5%88%99/" class="md-tabs__link">
+          
+  
+  网络基础
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../CDN/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-tabs__link">
+          
+  
+  云上网络
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="网络之路" class="md-nav__button md-logo" aria-label="网络之路" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    网络之路
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/RenJiangZhou2163/personal-knowledge-base" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    RenJiangZhou2163/personal-knowledge-base
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    网络基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            网络基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DNS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            DNS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/DNS/%E8%A7%A3%E6%9E%90%E8%AE%B0%E5%BD%95%E8%A7%84%E5%88%99/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    解析记录规则
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    云上网络
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            云上网络
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CDN
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            CDN
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_1" id="__nav_3_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    产品介绍
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            产品介绍
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CDN/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CDN/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    工作原理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CDN/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    性能指标
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CDN/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    应用场景
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    最佳实践
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            最佳实践
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CDN/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E7%BC%93%E5%AD%98%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何设置缓存过期时间
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CDN/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/%E5%A6%82%E4%BD%95%E6%8F%90%E9%AB%98%E7%BC%93%E5%AD%98%E5%91%BD%E4%B8%AD%E7%8E%87/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何提高缓存命中率
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CDN/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/%E8%8E%B7%E5%8F%96%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9C%9F%E5%AE%9EIP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    获取客户端真实IP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CDN/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/CDN%E5%8A%A0%E9%80%9F%E5%9F%BA%E4%BA%8EECS%E6%90%AD%E5%BB%BA%E7%9A%84%E7%BD%91%E7%AB%99/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CDN加速基于ECS搭建的网站
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 主要优点
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-expressroute" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. ExpressRoute 备忘单
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 功能
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 功能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. 第 3 层连接
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. 冗余
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. 复原
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-microsoft" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4. 与 Microsoft 云服务建立连接
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5. 与地缘政治区域中的所有区域建立连接
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-expressroute" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6. 使用 ExpressRoute 高级版建立全球连接
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-expressroute-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.7. 使用 ExpressRoute Local 建立本地连接
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-expressroute-global-reach" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.8. 使用 ExpressRoute Global Reach 进行本地连接
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.9. 丰富的连接合作伙伴生态系统
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#310" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.10. 与国家/地区云建立连接
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#311-expressroute-direct" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.11. ExpressRoute Direct
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.12. 带宽选项
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#313" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.13. 动态调整带宽
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#314" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.14. 弹性计费模式
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 常见问题解答
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 新增功能
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 后续步骤
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/RenJiangZhou2163/personal-knowledge-base/edit/main/docs/云上网络/Azure/什么是 Azure ExpressRoute.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>什么是 Azure ExpressRoute</h1>
+
+<p>使用 ExpressRoute 可通过连接服务提供商所提供的专用连接，将本地网络扩展到 Microsoft 云。 使用 ExpressRoute 可与 Microsoft Azure 和 Microsoft 365 等 Microsoft 云服务建立连接。</p>
+<p>可以从任意位置之间的 (IP VPN) 网络、点到点以太网或在场地租用设施上通过连接服务提供商的虚拟交叉连接来建立这种连接。 ExpressRoute 连接提供比通过 Internet 的典型连接更可靠、更快速、延迟更一致且更安全，因为它们不会经过公共 Internet。 要了解如何使用 ExpressRoute 将网络连接到 Microsoft，请参阅 <a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-connectivity-models">ExpressRoute 连接模型</a>。</p>
+<p><a class="glightbox" href="../images/30353c16ed403dc30b47d3496602c171_MD5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="ExpressRoute 连接概述" src="../images/30353c16ed403dc30b47d3496602c171_MD5.png" /></a></p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>在 ExpressRoute 的背景下，Microsoft Edge 描述了 ExpressRoute 线路 Microsoft 端的 Edge 路由器。 这是 ExpressRoute 线路进入 Microsoft 网络的入口点。</p>
+</div>
+<h2 id="1">1. 主要优点<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>通过连接服务提供商在本地网络与 Microsoft 云之间建立第 3 层连接。 可以从任意位置之间的 (IPVPN) 网络、点到点以太网，或通过以太网交换经由虚拟交叉连接来建立这种连接。</li>
+<li>跨地缘政治区域中的所有区域连接到 Microsoft 云服务。</li>
+<li>通过 ExpressRoute 高级版附加组件从全球连接到所有区域的 Microsoft 服务。</li>
+<li>通过 BGP 在网络与 Microsoft 之间进行动态路由。</li>
+<li>在每个对等位置提供内置冗余以提高可靠性。</li>
+<li>连接运行时间 <a href="https://azure.microsoft.com/support/legal/sla/">SLA</a>。</li>
+<li>Skype for Business 的 QoS 支持。</li>
+</ul>
+<p>有关详细信息，请参阅 <a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-faqs">ExpressRoute 常见问题</a>。</p>
+<p><a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-introduction#expressroute-cheat-sheet"></a></p>
+<h2 id="2-expressroute">2. ExpressRoute 备忘单<a class="headerlink" href="#2-expressroute" title="Permanent link">&para;</a></h2>
+<p>使用此<a href="https://download.microsoft.com/download/b/9/2/b92e3598-6e2e-4327-a87f-8dc210abca6c/AzureNetworking-ExRCheatSheet-v1-2.pdf">备忘单</a>快速访问最重要的 ExpressRoute 资源和信息。</p>
+<p>[<figure markdown="span">
+  <a class="glightbox" href="https://learn.microsoft.com/zh-cn/azure/expressroute/media/expressroute-introduction/cheat-sheet-expanded.png#lightbox" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="https://learn.microsoft.com/zh-cn/azure/expressroute/media/expressroute-introduction/cheat-sheet-expanded.png#lightbox" src="https://learn.microsoft.com/zh-cn/azure/expressroute/media/expressroute-introduction/cheat-sheet-expanded.png#lightbox" /></a>
+<br />
+<figcaption>用于快速访问信息的 ExpressRoute 备忘单的屏幕截图。](images/c5ecbc80ca7dbb1e89ae34efcb393369_MD5.png)</figcaption></p>
+</figure markdown>
+<p><a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-introduction#features"></a></p>
+<h2 id="3">3. 功能<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p><a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-introduction#layer-3-connectivity"></a></p>
+<h3 id="31-3">3.1. 第 3 层连接<a class="headerlink" href="#31-3" title="Permanent link">&para;</a></h3>
+<p>Microsoft 使用 BGP（一种行业标准动态路由协议），在本地网络、Azure 中的实例和 Microsoft 公共地址之间交换路由。 我们根据不同的流量配置文件来与网络建立多个 BGP 会话。 有关详细信息，请参阅 <a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-circuit-peerings">ExpressRoute 线路和路由域</a> 一文。</p>
+<p><a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-introduction#redundancy"></a></p>
+<h3 id="32">3.2. 冗余<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p>每个 ExpressRoute 线路都有两个连接，用于从连接服务提供商或网络边缘的 <a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-locations#expressroute-locations">ExpressRoute 位置</a>连接到两个 Microsoft 企业边缘路由器 (MSEE)。 Microsoft 要求通过连接服务提供商或网络边缘建立双重 BGP 连接 – 各自连接到每个 MSEE。 可以选择不要在一端部署冗余设备/以太网路线。 但是，连接服务提供商会使用冗余设备，确保以冗余方式将连接移交给 Microsoft。</p>
+<p><a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-introduction#resiliency"></a></p>
+<h3 id="33">3.3. 复原<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<p>Microsoft 在许多地缘政治区域中提供了多个 ExpressRoute 对等互连位置。 为确保最大复原能力，Microsoft 建议在两个对等互连位置建立到两条 ExpressRoute 线路的连接。 对于非生产和非关键工作负载，可以通过连接到在单个对等互连位置提供冗余连接的单个 ExpressRoute 线路来实现标准复原能力。 Azure 门户提供引导式体验，以帮助你创建可复原的 ExpressRoute 配置。 对于 Azure PowerShell、CLI、ARM 模板、Terraform 和 Bicep，可以通过在不同的 ExpressRoute 位置创建第二条 ExpressRoute 线路并与之连接来实现最大复原能力。 有关详细信息，请参阅<a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-howto-circuit-portal-resource-manager?pivots=expressroute-preview">使用 ExpressRoute 实现最大复原能力</a>。</p>
+<p><a class="glightbox" href="../images/0420ef5c28b5a8afcc315f0fd85cad0c_MD5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="ExpressRoute 连接的最大复原能力示意图。" src="../images/0420ef5c28b5a8afcc315f0fd85cad0c_MD5.png" /></a></p>
+<p><a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-introduction#connectivity-to-microsoft-cloud-services"></a></p>
+<h3 id="34-microsoft">3.4. 与 Microsoft 云服务建立连接<a class="headerlink" href="#34-microsoft" title="Permanent link">&para;</a></h3>
+<p>通过 ExpressRoute 连接可访问以下服务：</p>
+<ul>
+<li>Microsoft Azure 服务</li>
+<li>Microsoft 365 服务</li>
+</ul>
+<p>备注</p>
+<p>创建 Microsoft 365 是为了通过 Internet 安全可靠地访问。 因此，我们建议将 ExpressRoute 用于特定方案。 有关使用 ExpressRoute 访问 Microsoft 365 的信息，请访问<a href="https://learn.microsoft.com/zh-cn/microsoft-365/enterprise/azure-expressroute">适用于 Microsoft 365 的 Azure ExpressRoute</a>。</p>
+<p>有关通过 ExpressRoute 支持的服务的详细列表，请访问 <a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-faqs#microsoft-peering">ExpressRoute 常见问题解答</a>页。</p>
+<p><a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-introduction#connectivity-to-all-regions-within-a-geopolitical-region"></a></p>
+<h3 id="35">3.5. 与地缘政治区域中的所有区域建立连接<a class="headerlink" href="#35" title="Permanent link">&para;</a></h3>
+<p>可以从我们的某个<a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-locations">对等位置</a>连接到 Microsoft，并访问同一地缘政治区域中的区域。</p>
+<p>例如，如果在阿姆斯特丹通过 ExpressRoute 连接到 Microsoft， 你有权访问在北欧和西欧托管的所有 Microsoft 云服务。 有关地缘政治区域、关联的 Microsoft 云区域和对应的 ExpressRoute 对等位置的概述，请参阅 <a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-locations">ExpressRoute 合作伙伴和对等位置</a>一文。</p>
+<p><a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-introduction#global-connectivity-with-expressroute-premium"></a></p>
+<h3 id="36-expressroute">3.6. 使用 ExpressRoute 高级版建立全球连接<a class="headerlink" href="#36-expressroute" title="Permanent link">&para;</a></h3>
+<p>你可以启用 <a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-faqs#expressroute-premium">ExpressRoute 高级版</a>，将连接扩展为跨越地缘政治边界。 如果在阿姆斯特丹通过 ExpressRoute 连接到 Microsoft，则你有权访问在全球每个区域托管的所有 Microsoft 云服务。 例如，你有权访问部署在美国西部或澳大利亚东部的服务，与访问北欧和西欧区域的方式相同。 国家云不包括在内。</p>
+<p><a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-introduction#local-connectivity-with-expressroute-local"></a></p>
+<h3 id="37-expressroute-local">3.7. 使用 ExpressRoute Local 建立本地连接<a class="headerlink" href="#37-expressroute-local" title="Permanent link">&para;</a></h3>
+<p>通过启用<a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-faqs#expressroute-local">本地 SKU</a>，可以经济高效地传输数据。 使用本地 SKU，可以将数据传输到所需 Azure 区域附近的 ExpressRoute 位置。 使用 ExpressRoute Local 时，ExpressRoute 端口费用中包括了数据传输。</p>
+<p>有关对等互连位置和受支持的 Azure 本地区域，请参阅<a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-locations-providers#partners">提供商（按位置）</a>。</p>
+<p><a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-introduction#across-on-premises-connectivity-with-expressroute-global-reach"></a></p>
+<h3 id="38-expressroute-global-reach">3.8. 使用 ExpressRoute Global Reach 进行本地连接<a class="headerlink" href="#38-expressroute-global-reach" title="Permanent link">&para;</a></h3>
+<p>通过启用 ExpressRoute Global Reach，可以通过 ExpressRoute 线路跨本地站点交换数据。 例如，假设你有两个专用数据中心，一个位于加利福尼亚州，一个位于德克萨斯州，每个数据中心会连接到各自区域中的 ExpressRoute 线路。 可以使用 ExpressRoute Global Reach 将数据中心与这些线路链接，而跨数据中心流量会使用 Microsoft 网络。</p>
+<p>有关详细信息，请参阅 <a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-global-reach">ExpressRoute Global Reach</a>。</p>
+<p><a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-introduction#rich-connectivity-partner-ecosystem"></a></p>
+<h3 id="39">3.9. 丰富的连接合作伙伴生态系统<a class="headerlink" href="#39" title="Permanent link">&para;</a></h3>
+<p>ExpressRoute 的连接服务提供商和系统集成商合作伙伴生态系统不断发展。 有关最新信息，请参阅 <a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-locations">ExpressRoute 合作伙伴和对等互连位置</a>。</p>
+<p><a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-introduction#connectivity-to-national-clouds"></a></p>
+<h3 id="310">3.10. 与国家/地区云建立连接<a class="headerlink" href="#310" title="Permanent link">&para;</a></h3>
+<p>Microsoft 为特殊的地缘政治地区和客户群提供隔离的云环境。 有关国家云和提供商的列表，请参阅 <a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-locations#national-cloud-environment">ExpressRoute 合作伙伴和对等互连位置</a>。</p>
+<p><a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-introduction#expressroute-direct"></a></p>
+<h3 id="311-expressroute-direct">3.11. ExpressRoute Direct<a class="headerlink" href="#311-expressroute-direct" title="Permanent link">&para;</a></h3>
+<p>有了 ExpressRoute Direct，客户就有机会直接连接到巧妙分布在全球对等互连位置的 Microsoft 的全球网络。 ExpressRoute Direct 提供双 100 Gbps 连接，支持大规模的主动/主动连接。</p>
+<p>ExpressRoute Direct 提供的主要功能包括但不限于：</p>
+<ul>
+<li>将大量数据引入到 Azure 存储和 Azure Cosmos DB 等服务。</li>
+<li>针对受监管和需要专用和独立连接的行业的物理隔离。 例如：银行、政府和零售业。</li>
+<li>根据业务单位精细控制线路分布。</li>
+</ul>
+<p>有关详细信息，请参阅<a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-erdirect-about">关于 ExpressRoute Direct</a>。</p>
+<p><a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-introduction#bandwidth-options"></a></p>
+<h3 id="312">3.12. 带宽选项<a class="headerlink" href="#312" title="Permanent link">&para;</a></h3>
+<p>可以购买各种带宽的 ExpressRoute 线路。 下面列出了支持的带宽。 请务必咨询连接服务提供商，以确定他们支持的带宽。</p>
+<ul>
+<li>50 Mbps</li>
+<li>100 Mbps</li>
+<li>200 Mbps</li>
+<li>500 Mbps</li>
+<li>1 Gbps</li>
+<li>2 Gbps</li>
+<li>5 Gbps</li>
+<li>10 Gbps</li>
+</ul>
+<p>线路的内置冗余是使用到两个Microsoft 企业边缘路由器 (MSEE) 的主连接和辅助连接配置的，每个连接都使用所购买的带宽。 如有必要，可使用通过辅助连接提供的带宽来传输更多流量。 由于辅助连接是为了实现冗余，因此它得不到保障，不应在一段持续的时间内使用它来传输额外的流量。 如果计划仅使用主连接来传输流量，则连接的带宽是固定的，试图超额订阅会导致丢包率增加。</p>
+<p><a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-introduction#dynamic-scaling-of-bandwidth"></a></p>
+<h3 id="313">3.13. 动态调整带宽<a class="headerlink" href="#313" title="Permanent link">&para;</a></h3>
+<p>用户可以在不中断连接的情况下增大 ExpressRoute 线路带宽。 有关详细信息，请参阅<a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-howto-circuit-portal-resource-manager#modify">修改 ExpressRoute 线路</a>。</p>
+<p><a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-introduction#flexible-billing-models"></a></p>
+<h3 id="314">3.14. 弹性计费模式<a class="headerlink" href="#314" title="Permanent link">&para;</a></h3>
+<p>你可以选择最适合自己的计费模式：</p>
+<ul>
+<li><strong>无限制数据</strong>。 计费按月，所有入站和出站数据传输不收取费用。</li>
+<li><strong>计量数据</strong>。 计费按月，所有入站数据传输不收取费用。 出站数据传输按每 GB 数据传输计费。 数据传输费率根据区域不同而异。</li>
+<li><strong>ExpressRoute 高级版附加组件</strong>。 ExpressRoute 高级版是 ExpressRoute 线路上的附加组件。 ExpressRoute 高级版附加组件提供以下功能：<ul>
+<li>提高 Azure 公共和 Azure 专用对等互连的路由限制，从4,000 路由提升至 10,000 路由。</li>
+<li>服务的全球连接。 在任何区域（国家云除外）创建的 ExpressRoute 线路都能够访问位于全球其他区域的资源。 例如，创建于欧洲西部的虚拟网络可以通过在硅谷设置的 ExpressRoute 线路进行访问。</li>
+<li>增加了每个 ExpressRoute 线路的虚拟网络链接数量，从 10 增加至更大的限制，具体取决于线路的带宽。</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-introduction#faq"></a></p>
+<h2 id="4">4. 常见问题解答<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>有关 ExpressRoute 的常见问题，请参阅 <a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-faqs">ExpressRoute 常见问题解答</a>。</p>
+<p><a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-introduction#new"></a></p>
+<h2 id="5">5. 新增功能<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>订阅 RSS 源，并在 <a href="https://azure.microsoft.com/updates/?category=networking&amp;query=ExpressRoute">Azure 更新</a>页面上查看最新的 ExpressRoute 功能更新。</p>
+<p><a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-introduction#next-steps"></a></p>
+<h2 id="6">6. 后续步骤<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://learn.microsoft.com/zh-cn/training/modules/intro-to-azure-expressroute">Learn 模块：Azure ExpressRoute 简介</a>。</li>
+<li>查看 <a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-prerequisites">ExpressRoute 先决条件</a>。</li>
+<li>了解 <a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-connectivity-models">ExpressRoute 连接模型</a>。</li>
+<li>查找服务提供商，请参阅 <a href="https://learn.microsoft.com/zh-cn/azure/expressroute/expressroute-locations">ExpressRoute 合作伙伴和对等互连位置</a>。</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+  <h2 id="__comments">评论</h2>
+
+  <!-- Insert generated snippet here -->
+   
+  <script src="https://giscus.app/client.js"
+  data-repo="RenJiangZhou2163/RenJiangZhou2163.github.io"
+  data-repo-id="R_kgDOMpdFqw"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOMpdFq84CiByu"
+  data-mapping="title"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  crossorigin="anonymous"
+  async>
+</script>
+
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/RenJiangZhou2163" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:<renjiangzhou@163.com>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.8l167.6-182.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [{"navigation_depth": 4}, "navigation.footer", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.sections", "navigation.top", "content.code.copy", "content.tabs.link", "search.highlight", "search.share", "search.suggest", "navigation.path", "navigation.instant", "navigation.instant.progress", "navigation.footer", "content.action.edit", "search.highlight"], "search": "../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
