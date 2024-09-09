@@ -6,25 +6,27 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="在详细学习BGP路由属性对BGP选路的影响之前，用户需要了解如何查询这些路由属性。">
+      
       
         <meta name="author" content="renjiangzhou@163.com">
       
       
-        <link rel="canonical" href="https://renjiangzhou2163.github.io/01%20%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/mkdocs/">
+        <link rel="canonical" href="https://renjiangzhou2163.github.io/%E8%B7%AF%E7%94%B1/BGP/%E7%90%86%E8%A7%A3BGP%E8%B7%AF%E7%94%B1%E8%A1%A8/">
       
       
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
     
     
       
-        <title>Mkdocs - 网络之路</title>
+        <title>理解BGP路由表 - 网络之路</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.35f28582.min.css">
       
       
 
@@ -43,16 +45,16 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -61,7 +63,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -71,11 +73,6 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
-      
-        
-        <a href="#1-mkdocsyml" class="md-skip">
-          跳转至
-        </a>
       
     </div>
     <div data-md-component="announce">
@@ -89,7 +86,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="网络之路" class="md-header__button md-logo" aria-label="网络之路" data-md-component="logo">
+    <a href="../../.." title="网络之路" class="md-header__button md-logo" aria-label="网络之路" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -109,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Mkdocs
+              理解BGP路由表
             
           </span>
         </div>
@@ -191,7 +188,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -216,7 +213,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/DNS/%E8%A7%A3%E6%9E%90%E8%AE%B0%E5%BD%95%E8%A7%84%E5%88%99/" class="md-tabs__link">
+        <a href="../../../%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/DNS/%E8%A7%A3%E6%9E%90%E8%AE%B0%E5%BD%95%E8%A7%84%E5%88%99/" class="md-tabs__link">
           
   
   网络基础
@@ -242,6 +239,33 @@
   
     
     
+      <li class="md-tabs__item">
+        <a href="../BGP%20%E7%9A%84%E8%B7%AF%E7%94%B1%E4%BC%98%E9%80%89%E8%A7%84%E5%88%99/" class="md-tabs__link">
+          
+  
+  路由
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
       
   
   
@@ -249,7 +273,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-tabs__link">
+        <a href="../../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-tabs__link">
           
   
   云上网络
@@ -273,7 +297,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../知识管理工具/markdown.md" class="md-tabs__link">
+        <a href="../../../%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/markdown/" class="md-tabs__link">
           
   
   知识管理
@@ -312,7 +336,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="网络之路" class="md-nav__button md-logo" aria-label="网络之路" data-md-component="logo">
+    <a href="../../.." title="网络之路" class="md-nav__button md-logo" aria-label="网络之路" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -342,7 +366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -442,7 +466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/DNS/%E8%A7%A3%E6%9E%90%E8%AE%B0%E5%BD%95%E8%A7%84%E5%88%99/" class="md-nav__link">
+      <a href="../../../%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/DNS/%E8%A7%A3%E6%9E%90%E8%AE%B0%E5%BD%95%E8%A7%84%E5%88%99/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -497,7 +521,7 @@
             
   
   <span class="md-ellipsis">
-    云上网络
+    路由
   </span>
   
 
@@ -507,7 +531,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            云上网络
+            路由
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -537,7 +561,7 @@
             
   
   <span class="md-ellipsis">
-    CDN
+    BGP
   </span>
   
 
@@ -547,47 +571,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
-            CDN
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_1_1" id="__nav_3_1_1_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    产品介绍
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1_1">
-            <span class="md-nav__icon md-icon"></span>
-            产品介绍
+            BGP
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -598,377 +582,15 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
+      <a href="../BGP%20%E7%9A%84%E8%B7%AF%E7%94%B1%E4%BC%98%E9%80%89%E8%A7%84%E5%88%99/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    基本概念
+    BGP 的路由优选规则
   </span>
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    工作原理
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    性能指标
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    应用场景
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    最佳实践
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1_2">
-            <span class="md-nav__icon md-icon"></span>
-            最佳实践
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E7%BC%93%E5%AD%98%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    如何设置缓存过期时间
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/%E5%A6%82%E4%BD%95%E6%8F%90%E9%AB%98%E7%BC%93%E5%AD%98%E5%91%BD%E4%B8%AD%E7%8E%87/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    如何提高缓存命中率
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/%E8%8E%B7%E5%8F%96%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9C%9F%E5%AE%9EIP/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    获取客户端真实IP
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/CDN%E5%8A%A0%E9%80%9F%E5%9F%BA%E4%BA%8EECS%E6%90%AD%E5%BB%BA%E7%9A%84%E7%BD%91%E7%AB%99/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    CDN加速基于ECS搭建的网站
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_1_3" id="__nav_3_1_3_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    用户指南
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1_3">
-            <span class="md-nav__icon md-icon"></span>
-            用户指南
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/%E7%BC%93%E5%AD%98%E9%A2%84%E7%83%AD/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    缓存预热
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/%E7%BC%93%E5%AD%98%E5%88%B7%E6%96%B0/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    缓存刷新
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_1_4" id="__nav_3_1_4_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    统计说明
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1_4">
-            <span class="md-nav__icon md-icon"></span>
-            统计说明
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90/%E7%BB%9F%E8%AE%A1%E8%AF%B4%E6%98%8E/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    统计说明
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -1015,7 +637,7 @@
             
   
   <span class="md-ellipsis">
-    知识管理
+    云上网络
   </span>
   
 
@@ -1025,7 +647,87 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            知识管理
+            云上网络
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CDN
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            CDN
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_1" id="__nav_4_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    产品介绍
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            产品介绍
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1036,11 +738,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../知识管理工具/markdown.md" class="md-nav__link">
+      <a href="../../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    None
+    基本概念
   </span>
   
 
@@ -1057,11 +759,470 @@
   
   
     <li class="md-nav__item">
-      <a href="../../知识管理工具/mkdocs.md" class="md-nav__link">
+      <a href="../../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    None
+    工作原理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    性能指标
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    应用场景
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_2" id="__nav_4_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    最佳实践
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            最佳实践
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E7%BC%93%E5%AD%98%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何设置缓存过期时间
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/%E5%A6%82%E4%BD%95%E6%8F%90%E9%AB%98%E7%BC%93%E5%AD%98%E5%91%BD%E4%B8%AD%E7%8E%87/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何提高缓存命中率
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/%E8%8E%B7%E5%8F%96%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9C%9F%E5%AE%9EIP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    获取客户端真实IP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/CDN%E5%8A%A0%E9%80%9F%E5%9F%BA%E4%BA%8EECS%E6%90%AD%E5%BB%BA%E7%9A%84%E7%BD%91%E7%AB%99/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CDN加速基于ECS搭建的网站
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_3" id="__nav_4_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    用户指南
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            用户指南
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/%E7%BC%93%E5%AD%98%E9%A2%84%E7%83%AD/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    缓存预热
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/%E7%BC%93%E5%AD%98%E5%88%B7%E6%96%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    缓存刷新
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_4" id="__nav_4_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    统计说明
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            统计说明
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E4%BA%91%E4%B8%8A%E7%BD%91%E7%BB%9C/CDN/%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90/%E7%BB%9F%E8%AE%A1%E8%AF%B4%E6%98%8E/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    统计说明
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    知识管理
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            知识管理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Markdown
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/mkdocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mkdocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/obsidian/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Obsidian
   </span>
   
 
@@ -1096,242 +1257,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-mkdocsyml" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. mkdocs.yml配置
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 使用指导
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. 使用指导">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.1. 参考文档
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.2. 添加评论系统
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23-plugin" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.3. Plugin
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.4. 配置说明
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2.4. 配置说明">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#241" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.4.1. 标题加粗效果
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 具体步骤
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. 具体步骤">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-css" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.1. 创建自定义CSS文件
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-css" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.2. 编辑自定义CSS文件
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33-mkdocs" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.3. 更新MkDocs配置文件
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#34" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.4. 重新生成文档
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#35" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.5. 示例
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3.5. 示例">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#351" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.5.1. 项目结构
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#352-extracss" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.5.2. extra.css
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#353-mkdocsyml" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.5.3. mkdocs.yml
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. 不生效问题排查
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. 不生效问题排查">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41-css" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.1. 检查CSS文件路径
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.2. 清除浏览器缓存
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43-css" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.3. 确认CSS选择器优先级
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#44" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.4. 使用开发者工具检查样式
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#45-mkdocscss" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.5. 确保MkDocs正确加载了自定义CSS
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1345,7 +1270,7 @@
                   
 
   
-    <a href="https://github.com/RenJiangZhou2163/personal-knowledge-base/edit/main/docs/01 知识管理工具/mkdocs.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/RenJiangZhou2163/personal-knowledge-base/edit/main/docs/路由/BGP/理解BGP路由表.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1353,211 +1278,113 @@
   
 
 
-  <h1>Mkdocs</h1>
+  <h1>理解BGP路由表</h1>
 
-<h2 id="1-mkdocsyml">1. mkdocs.yml配置<a class="headerlink" href="#1-mkdocsyml" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td>https://github.com/nautobot/nautobot-app-device-lifecycle-mgmt/blob/main/mkdocs.yml</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="2">2. 使用指导<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<h3 id="21">2.1. 参考文档<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>文档说明</th>
-<th>链接</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>MkDocs官方文档</td>
-<td><a href="https://squidfunk.github.io/mkdocs-material/">https://squidfunk.github.io/mkdocs-material/</a></td>
-<td></td>
-</tr>
-<tr>
-<td>MkDocs中文文档</td>
-<td><a href="https://hellowac.github.io/mkdocs-docs-zh/">https://hellowac.github.io/mkdocs-docs-zh/</a></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td><a href="https://github.com/blueswen/mkdocs-glightbox">https://github.com/blueswen/mkdocs-glightbox</a></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="22">2.2. 添加评论系统<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>添加评论系统</td>
-<td>https://squidfunk.github.io/mkdocs-material/setup/adding-a-comment-system/</td>
-</tr>
-</tbody>
-</table>
-<h3 id="23-plugin">2.3. Plugin<a class="headerlink" href="#23-plugin" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>插件功能</th>
-<th>链接</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>obsidian支持</td>
-<td>https://ndy2.github.io/mkdocs-obsidian-support-plugin/</td>
-</tr>
-</tbody>
-</table>
-<h3 id="24">2.4. 配置说明<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
-<h4 id="241">2.4.1. 标题加粗效果<a class="headerlink" href="#241" title="Permanent link">&para;</a></h4>
-<p>在<code>mkdocs.yml</code>文件中直接设置标题加粗效果是不可能的，因为<code>mkdocs.yml</code>主要用于配置站点信息、导航、主题和插件等内容，而不是用于直接定义样式。然而，你可以通过在<code>mkdocs.yml</code>中引用自定义CSS文件来间接实现这一目标。</p>
-<h2 id="3">3. 具体步骤<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<h3 id="31-css">3.1. <strong>创建自定义CSS文件</strong><a class="headerlink" href="#31-css" title="Permanent link">&para;</a></h3>
-<p>在你的MkDocs项目目录下创建一个名为<code>extra.css</code>的自定义CSS文件。例如，在<code>docs</code>目录下创建一个<code>stylesheets</code>子目录，然后在其中创建<code>extra.css</code>：</p>
-<div class="highlight"><pre><span></span><code>my_project/
-<span class="w">    </span>docs/
-<span class="w">        </span>index.md
-<span class="w">        </span>about.md
-<span class="w">        </span>contact.md
-<span class="w">        </span>stylesheets/
-<span class="w">            </span>extra.css
-<span class="w">    </span>mkdocs.yml
-</code></pre></div>
-<h3 id="32-css">3.2. <strong>编辑自定义CSS文件</strong><a class="headerlink" href="#32-css" title="Permanent link">&para;</a></h3>
-<p>在<code>extra.css</code>中添加你希望的标题加粗样式。以下是一些示例代码，展示如何为不同级别的标题（如h1, h2, h3等）设置加粗效果：</p>
-<div class="highlight"><pre><span></span><code><span class="c">/* 增加选择器优先级 */</span>
-<span class="p">.</span><span class="nc">md-content</span><span class="w"> </span><span class="nt">h1</span><span class="o">,</span><span class="w"> </span><span class="p">.</span><span class="nc">md-content</span><span class="w"> </span><span class="nt">h2</span><span class="o">,</span><span class="w"> </span><span class="p">.</span><span class="nc">md-content</span><span class="w"> </span><span class="nt">h3</span><span class="o">,</span><span class="w"> </span><span class="p">.</span><span class="nc">md-content</span><span class="w"> </span><span class="nt">h4</span><span class="o">,</span><span class="w"> </span><span class="p">.</span><span class="nc">md-content</span><span class="w"> </span><span class="nt">h5</span><span class="o">,</span><span class="w"> </span><span class="p">.</span><span class="nc">md-content</span><span class="w"> </span><span class="nt">h6</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="kc">bold</span><span class="w"> </span><span class="cp">!important</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-<h3 id="33-mkdocs">3.3. <strong>更新MkDocs配置文件</strong><a class="headerlink" href="#33-mkdocs" title="Permanent link">&para;</a></h3>
-<p>在你的<code>mkdocs.yml</code>配置文件中引用这个自定义CSS文件：</p>
-<div class="highlight"><pre><span></span><code><span class="nt">site_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">我的文档站点</span>
-
-<span class="nt">nav</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">首页</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">index.md</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">关于我们</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">about.md</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">联系我们</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contact.md</span>
-
-<span class="nt">theme</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">material</span><span class="w">  </span><span class="c1"># 或者其他你正在使用的主题</span>
-
-<span class="nt">extra_css</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stylesheets/extra.css</span>
-
-<span class="nt">markdown_extensions</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">toc</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">permalink</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</code></pre></div>
-<h3 id="34">3.4. <strong>重新生成文档</strong><a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
-<p>保存所有更改后，重新生成并查看你的MkDocs文档。你可以使用以下命令启动本地开发服务器：</p>
-<div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>serve
-</code></pre></div>
-<h3 id="35">3.5. 示例<a class="headerlink" href="#35" title="Permanent link">&para;</a></h3>
-<p>以下是一个完整示例，展示如何在MkDocs项目中实现标题加粗效果。</p>
-<h4 id="351">3.5.1. 项目结构<a class="headerlink" href="#351" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>my_project/
-<span class="w">    </span>docs/
-<span class="w">        </span>index.md
-<span class="w">        </span>about.md
-<span class="w">        </span>contact.md
-<span class="w">        </span>stylesheets/
-<span class="w">            </span>extra.css
-<span class="w">    </span>mkdocs.yml
-</code></pre></div>
-<h4 id="352-extracss">3.5.2. <code>extra.css</code><a class="headerlink" href="#352-extracss" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>/* 设置所有级别标题为加粗 */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: bold;
-}
-</code></pre></div>
-<h4 id="353-mkdocsyml">3.5.3. <code>mkdocs.yml</code><a class="headerlink" href="#353-mkdocsyml" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code><span class="nt">site_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">我的文档站点</span>
-
-<span class="nt">nav</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">首页</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">index.md</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">关于我们</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">about.md</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">联系我们</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contact.md</span>
-
-<span class="nt">theme</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">material</span><span class="w">  </span><span class="c1"># 或者其他你正在使用的主题</span>
-
-<span class="nt">extra_css</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stylesheets/extra.css</span>
-
-<span class="nt">markdown_extensions</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">toc</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">permalink</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</code></pre></div>
-<p>通过以上步骤，你就能成功在MkDocs文档中实现标题加粗效果。如果有更多具体需求或问题，欢迎继续提问！</p>
-<h2 id="4">4. 不生效问题排查<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
-<p>如果按照以上步骤操作后，仍然没有实现标题加粗效果，可以通过以下方法进行排查：</p>
-<h3 id="41-css">4.1. 检查CSS文件路径<a class="headerlink" href="#41-css" title="Permanent link">&para;</a></h3>
-<p>确保<code>extra.css</code>文件的路径在<code>mkdocs.yml</code>中配置正确。路径应相对于<code>docs</code>目录。例如，如果你的CSS文件在<code>docs/stylesheets/extra.css</code>，确保在<code>mkdocs.yml</code>中这样引用：</p>
-<div class="highlight"><pre><span></span><code><span class="nt">extra_css</span><span class="o">:</span>
-<span class="w">  </span><span class="nt">-</span><span class="w"> </span><span class="nt">stylesheets</span><span class="o">/</span><span class="nt">extra</span><span class="p">.</span><span class="nc">css</span>
-</code></pre></div>
-<h3 id="42">4.2. 清除浏览器缓存<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
-<p>有时浏览器会缓存旧的CSS文件，导致你看不到最新的样式更改。尝试清除浏览器缓存或使用无痕模式（隐私模式）查看文档。</p>
-<h3 id="43-css">4.3. 确认CSS选择器优先级<a class="headerlink" href="#43-css" title="Permanent link">&para;</a></h3>
-<p>确保你的CSS选择器具有足够的优先级来覆盖默认样式。如果其他样式表中的选择器具有更高优先级，你的样式可能不会生效。你可以尝试增加选择器的优先级，例如：</p>
-<div class="highlight"><pre><span></span><code><span class="c">/* 增加选择器优先级 */</span>
-<span class="p">.</span><span class="nc">md-content</span><span class="w"> </span><span class="nt">h1</span><span class="o">,</span><span class="w"> </span><span class="p">.</span><span class="nc">md-content</span><span class="w"> </span><span class="nt">h2</span><span class="o">,</span><span class="w"> </span><span class="p">.</span><span class="nc">md-content</span><span class="w"> </span><span class="nt">h3</span><span class="o">,</span><span class="w"> </span><span class="p">.</span><span class="nc">md-content</span><span class="w"> </span><span class="nt">h4</span><span class="o">,</span><span class="w"> </span><span class="p">.</span><span class="nc">md-content</span><span class="w"> </span><span class="nt">h5</span><span class="o">,</span><span class="w"> </span><span class="p">.</span><span class="nc">md-content</span><span class="w"> </span><span class="nt">h6</span><span class="w"> </span><span class="p">{</span><span class="err">c</span>
-<span class="w">    </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="kc">bold</span><span class="w"> </span><span class="cp">!important</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-<h3 id="44">4.4. 使用开发者工具检查样式<a class="headerlink" href="#44" title="Permanent link">&para;</a></h3>
-<p>使用浏览器的开发者工具（通常按 <code>F12</code> 或右键点击页面然后选择“检查”）查看标题元素，确认它们是否应用了你的自定义样式。如果没有应用，检查具体原因。</p>
-<h3 id="45-mkdocscss">4.5. 确保MkDocs正确加载了自定义CSS<a class="headerlink" href="#45-mkdocscss" title="Permanent link">&para;</a></h3>
-<p>启动MkDocs本地服务器并查看生成的HTML源代码，确保自定义CSS文件被正确加载。你可以通过以下命令启动本地服务器：</p>
-<div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>serve
-</code></pre></div>
-<p>然后在浏览器中打开 <code>http://127.0.0.1:8000/</code> 并查看页面源代码，确认是否有如下内容：</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/stylesheets/extra.css&quot;</span><span class="p">&gt;</span>
-</code></pre></div>
+<p>在详细学习BGP路由属性对BGP选路的影响之前，用户需要了解如何查询这些路由属性。</p>
+<p><a href="http://localhost:7890/pages/AZJ06125/01/AZJ06125/01/resources/software/nev8r10_vrpv8r16/user/vrp/dc_vrp_bgp_path_selection_0017.html?ft=0&amp;fe=10&amp;hib=5.8.10.55.3&amp;id=ZH-CN_CONCEPT_0172366305#table_dc_vrp_bgp_path_selection_001701">表</a>1列出了所有影响BGP选路的路由属性以及这些属性对应的常用查询命令。</p>
+<p><strong>表****1</strong> 路由属性的查看命令</p>
+<p>|
+|
+<mark>路由属性</mark> <mark>常用查询命令</mark>
+|路由起源|<strong>display bgp routing-table</strong> [ <em>network</em> ]|
+|协议首选值（PrefVal）|<strong>display bgp routing-table</strong> [ <em>network</em> ]|
+|本地优先级（Local_Pref）|<strong>display bgp routing-table</strong> [ <em>network</em> ]|
+|路由生成方式|<strong>display bgp routing-table</strong> <em>network</em>|
+|AIGP|<strong>display bgp routing-table</strong> <em>network</em>|
+|AS_Path|<strong>display bgp routing-table</strong> [ <em>network</em> ]|
+|Origin|<strong>display bgp routing-table</strong> [ <em>network</em> ]|
+|MED|<strong>display bgp routing-table</strong> [ <em>network</em> ]|
+|邻居类型|<strong>display bgp routing-table</strong> <em>network</em>|
+|IGP Metric|- <strong>display bgp routing-table</strong> <em>network</em><br>- <strong>display ip routing-table</strong> <em>ip-address</em> [ <em>mask</em> | <em>mask-length</em> ] [ verbose ]，其中_ip-address_是BGP路由的下一跳IP地址。|
+|Cluster_List|<strong>display bgp routing-table</strong> <em>network</em>|
+|Originator_ID|<strong>display bgp routing-table</strong> <em>network</em>|
+|Router ID|<strong>display bgp routing-table</strong> <em>network</em>|
+|对等体IP地址|<strong>display bgp routing-table</strong> <em>network</em>|</p>
+<p>在下面的描述中，将结合实际例子介绍如何查看BGP路由属性。例如，使用**display bgp routing-table**命令查看BGP路由表。</p>
+<p>|
+|
+==
+<HUAWEI> display bgp routing-table￼ BGP Local router ID is 1.1.1.2￼ Status codes: * - valid, &gt; - best, d - damped, x - best external, a - add path,h - history, i - internal, s - suppressed, S - Stale￼ Origin : i - IGP, e - EGP, ? - incomplete￼ RPKI validation codes: V - valid, I - invalid, N - not-found   Total Number of Routes: 4￼ Network NextHop MED LocPrf PrefVal Path/Ogn<br />
+* 1.1.1.0/24 1.1.1.1 0 0 100?￼ * 1.1.1.2/32 1.1.1.1 0 0 100?￼ *&gt; 5.1.1.0/24 1.1.1.1 0 0 100?￼ *&gt; 10.10.1.0/24 1.1.1.1 0 0 100?
+==</p>
+<p><strong>表****2</strong> display bgp routing-table命令输出信息描述</p>
+<p>|
+|
+<mark>项目</mark> <mark>描述</mark>
+|BGP Local router ID is 1.1.1.2|BGP的Router ID是1.1.1.2，其格式与IPv4地址一样。|
+|Status codes|路由的状态代码。显示在每条路由的最前面。<br><br>- <em>：表示路由是有效路由，下一跳可达。<br>- &gt;：表示路由是BGP选出的最优路由。<br>- d：表示路由是衰减路由。<br>- x：表示路由是Best-external路由。<br>- a：表示路由是ADD-PATH路由。<br>- h：表示路由是历史路由。<br>- i：表示路由是AS内部路由，来自于IBGP对等体。<br>- s：表示路由处于被抑制状态。配置路由聚合时，如果选择抑制参与聚合的具体路由，则这些具体路由会被打上s标记。<br>- S：处于Stale状态的路由，正在被删除。BGP GR过程中可能出现此标记。<br><br>  <br><br>BGP振荡抑制使用惩罚值来衡量一条路由的稳定性，惩罚值越高则说明路由越不稳定。路由每发生一次振荡，即路由器收到该路由的Withdraw报文或者收到该路由的属性更新的Update报文时，BGP便会给此路由增加一定的惩罚值。<br><br>  <br><br>当惩罚值超过抑制阈值时，BGP会将该路由的&gt;标志去掉，此路由被抑制，不再参与BGP选路，路由器也不再向其他BGP对等体发布该路由的Update报文。<br><br>- 如果该路由被打上d标志，说明路由器最后收到的是Update报文。<br>- 如果该路由被打上h标志，说明路由器最后收到的是Withdraw报文。<br><br>  <br><br>惩罚值增加到一定程度之后，便不会再增加，这个值称为惩罚上限值。同时，被抑制的路由每经过一段时间，惩罚值便会减少一半。<br><br>- 如果是d标志的路由，当惩罚值降到再使用阈值时，此路由会被去掉d标记，变为可用并被优选后加入到IP路由表中，同时向其他BGP对等体发布该路由的Update报文。<br>- 如果是h标志的路由，当惩罚值降为0时，此路由会从BGP路由表中删除。|
+|Origin|路由的Origin属性代码。<br><br>- IGP：BGP用**network (BGP)**命令注入到路由表的路由，其Origin属性为IGP。<br>- EGP：通过EGP得到的路由信息，其Origin属性为EGP。<br>- Incomplete：表示路由的来源无法确定。BGP通过**import-route (BGP)**命令引入的路由，其Origin属性为Incomplete。|
+|RPKI validation codes|路由起源AS验证代码。<br><br>- V：表示路由是有效路由。<br>- I：表示路由是无效路由。<br>- N：表示路由没有找到。|
+|Network|BGP路由表中的网络地址。|
+|**NextHop*</em>|报文发送的下一跳地址。|
+|<strong>MED</strong>|BGP路由的MED度量值，作用类似于IGP路由的Metric（也称为Cost）。|
+|<strong>LocPrf</strong>|本地优先级（Local_Pref）。|
+|<strong>PrefVal</strong>|协议首选值（PrefVal）。|
+|<strong>Path</strong>/<strong>Ogn</strong>|AS_Path属性及Origin属性。|</p>
+<p>通过上文描述可以看到，BGP选路中使用的多个路由属性都可以通过**display bgp routing-table**命令查询，例如：NextHop、MED、LocPrf、PrefVal、AS_Path和Origin。但是其他的一些属性则需要通过**display bgp routing-table** _network_命令查询BGP路由的详细信息获得，例如：Route type、AIGP、Peer type、IGP Metric、Cluster_List、Router ID和Peer IP Address，以下面的显示为例。</p>
+<p>|
+|
+==
+<HUAWEI> display bgp routing-table 10.1.1.1<br />
+BGP local router ID : 192.168.2.2￼ Local AS number : 100￼ Paths: 1 available, 1 best, 1 select, 0 best-external, 0 add-path<br />
+BGP routing table entry information of 10.1.1.1/32:￼ From: 10.1.3.1 (192.168.2.3)￼ Route Duration: 0d00h01m33s￼ Direct Out-interface: GigabitEthernet0/1/0<br />
+Relay is delayed as nexthop flapped frequently￼ Original nexthop: 10.1.3.1￼ Qos information : 0x0￼ Primary Routing Table: vrf1￼ AS-path 200, origin incomplete, MED 0, pref-val 0, valid, external, best, select, active, pre 255, IGP cost 20￼ Advertised to such 1 peers:￼ 10.1.3.1
+==</p>
+<p><strong>表****3</strong> display bgp routing-table命令输出信息描述</p>
+<p>|
+|
+<mark>项目</mark> <mark>描述</mark>
+|BGP local router ID|本地BGP设备的ID号，其格式与IPv4地址一样。|
+|Local AS number|本地自治系统号。|
+|Paths|BGP的路径信息。|
+|BGP routing table entry information of 10.1.1.1/32|表示下面的信息是10.1.1.1/32的路由表项信息。|
+|<strong>From</strong>|路由发布者的IP地址。其中，10.1.3.1是邻居用来建立BGP连接的接口的IP地址（Peer IP Address），192.168.2.3是邻居的Router ID。|
+|Route Duration|路由持续时间。|
+|Direct Out-interface|直连出接口。|
+|Relay is delayed as nexthop flapped frequently|下一跳迭代震荡处于抑制中。如果路由较少，可能抑制处理时间过短，显示信息中看不到该字段|
+|Original nexthop|原始的下一跳。|
+|Qos information|QoS信息。|
+|Primary Routing Table|源路由表|
+|<strong>AS-path</strong>|AS_Path属性。如果显示为“Nil”表示属性值为空。|
+|<strong>origin incomplete</strong>|该路由的源(Origin)属性。它有以下3种类型：<br><br>- IGP：比如用**network (BGP)<strong>命令注入到BGP路由表的路由，其Origin属性为IGP。<br>- EGP：通过EGP得到的路由信息，其Origin属性为EGP。<br>- Incomplete：表示路由的来源无法确定。比如BGP通过**import-route (BGP)**命令引入的路由，其Origin属性为Incomplete。|
+|**MED</strong>|BGP路由的MED度量值，作用类似于IGP路由的Cost（也称为Metric）。|
+|<strong>pref-val</strong>|协议首选值（PrefVal）。|
+|valid|该路由是有效路由，下一跳可达。|
+|<strong>external</strong>|该路由的邻居类型。<br><br>- external：该路由是AS外部路由，也即路由来自于EBGP对等体。<br>- internal：该路由是AS内部路由，也即路由来自于IBGP对等体。|
+|best|该路由是最优路由。|
+|select|该路由是优选路由，将要被下发到IP路由表。  <br><strong>说明：</strong>  <br><mark>需要注意====select====与====best====标志的区别。====根据====BGP====选路规则，总是能够选择出一条最优路由，这个最优路由会带上====best====标记；而在负载分担或====FRR====场景，实际需要将多条====BGP====有效路由下发到====IP====路由表，这些路由都会带上====select====标记。因此====best====数值总是====1==</mark>，而====select====数值则是实际下发====IP====路由表的====BGP====路由数目。==|
+|active|该路由是活跃路由。|
+|pre 255|该路由的协议优先级为255。|
+|Advertised to such 1 peers|该路由向一个对等体发布。|</p>
+<p>需要指出的是，执行**display bgp routing-table** <em>network</em> [ { <em>mask</em> | <em>mask-length</em> } [ <strong>longer-prefixes</strong> ] ]命令输出的显示信息与路由的生成方式和传递方式有关系，并不一定会显示BGP路由的所有属性。比如上述显示信息中，由于10.1.1.1/32是IBGP路由，所以并不会显示Route type。如果使用**display bgp routing-table** <em>network</em> [ { <em>mask</em> | <em>mask-length</em> } [ <strong>longer-prefixes</strong> ] ]命令查询本地BGP路由的详细信息，则可以看到Route type。例如：</p>
+<p>|
+|
+==
+<HUAWEI> display bgp routing-table 10.0.0.0<br />
+BGP local router ID : 192.168.2.4￼ Local AS number : 200￼ Paths: 1 available, 1 best, 1 select￼ BGP routing table entry information of 10.0.0.0/8:￼ Aggregated route.￼ Route Duration: 04h50m46s￼ Direct Out-interface: NULL0￼ Original nexthop: 127.0.0.1￼ Qos information : 0x0￼ AS-path {65001 10 100}, origin incomplete, pref-val 0, valid, local, best, select, active, pre 255￼ Aggregator: AS 200, Aggregator ID 192.168.2.4, Atomic-aggregate￼ Advertised to such 3 peers:￼ 10.1.7.2￼ 172.16.1.2￼ 192.168.1.2
+==</p>
+<p>从上面的显示信息可以看出，10.0.0.0/8这条路由是本地通过**aggregate**命令生成的手动聚合路由。事实上，这个字段会随着路由类型不同而变化。</p>
+<ul>
+<li>如果路由是通过**summary automatic**命令生成的自动聚合路由，则该处显示为“Summary automatic route”。</li>
+<li>如果路由是通过**network**命令引入的路由，则该处显示为“Network route”。</li>
+<li>如果路由是通过**import-route**命令引入的路由，则该处显示为“Imported route”。</li>
+</ul>
+<p>而在下面的显示信息中，由于网络中配置了路由反射器RR（Router Reflector）和Cluster，所以使用**display bgp routing-table** <em>network</em> [ { <em>mask</em> | <em>mask-length</em> } [ <strong>longer-prefixes</strong> ] ]命令查询BGP路由的详细信息时，可以看到路由的Cluster_List属性。例如：</p>
+<p>|
+|
+==
+<HUAWEI> display bgp routing-table 10.2.1.0<br />
+BGP local router ID : 4.4.4.4￼ Local AS number : 65010￼ Paths: 1 available, 0 best, 0 select￼ BGP routing table entry information of 10.2.1.0/24:￼ From: 10.1.4.1 (2.2.2.2)￼ Route Duration: 00h00m14s￼ Relay IP Nexthop: 0.0.0.0￼ Relay IP Out-Interface:￼ Original nexthop: 10.1.1.2￼ Qos information : 0x0￼ AS-path Nil, origin igp, MED 0, localpref 100, pref-val 0, internal, pre 255￼ Originator: 1.1.1.1￼ Cluster list: 0.0.0.1￼ Not advertised to any peer yet
+==</p>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1633,10 +1460,10 @@ h1, h2, h3, h4, h5, h6 {
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [{"navigation_depth": 4}, "navigation.footer", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.sections", "navigation.top", "content.code.copy", "content.tabs.link", "search.highlight", "search.share", "search.suggest", "navigation.path", "navigation.instant", "navigation.instant.progress", "navigation.footer", "content.action.edit", "search.highlight"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [{"navigation_depth": 4}, "navigation.footer", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.sections", "navigation.top", "content.code.copy", "content.tabs.link", "search.highlight", "search.share", "search.suggest", "navigation.path", "navigation.instant", "navigation.instant.progress", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.56dfad97.min.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
