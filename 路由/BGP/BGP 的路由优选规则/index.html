@@ -1325,7 +1325,7 @@
 </tr>
 <tr>
 <td>本地优先级</td>
-<td>优选本地优先级（Local_Pref）最高的路由。<br><br>- 如果路由没有本地优先级，BGP选路时将该路由按缺省的本地优先级100来处理。<br>- 通过执行 <strong>default local-preference</strong> 命令可以修改 BGP 路由的缺省本地优先级。<br><br><font color="**ff0000**{: .hash}">用于判断流量离开AS时的最佳路由</font></td>
+<td>优选本地优先级（Local_Pref）最高的路由。<br><br><li>如果路由没有本地优先级，BGP选路时将该路由按缺省的本地优先级100来处理。</li><br><li>通过执行 <strong>default local-preference</strong> 命令可以修改 BGP 路由的缺省本地优先级。</li><br><br><strong>用于判断流量离开AS时的最佳路由</strong></td>
 </tr>
 <tr>
 <td>路由生成方式</td>
@@ -1345,15 +1345,15 @@
 </tr>
 <tr>
 <td>MED</td>
-<td>通过合理配置MED，可以对网络流量进行合理规划，达到负载均衡的目的。  <br>MED属性主要用来判断流量进入同一个AS时的最佳路由  <br>对于来自同一AS的路由，优选MED值最低的路由。</td>
+<td>通过合理配置MED，可以对网络流量进行合理规划，达到负载均衡的目的。<br>  <br>MED属性主要用来判断流量进入同一个AS时的最佳路由  <br><br>对于来自同一AS的路由，优选MED值最低的路由。</td>
 </tr>
 <tr>
 <td>邻居类型</td>
-<td>当IBGP路由和EBGP路由同时存在时，BGP优选从EBGP邻居学来的路由。<br><br><br>依次优选EBGP路由、IBGP路由、LocalCross路由、RemoteCross路由。￼PE上某个VPN实例的VPNv4路由的ERT匹配其他VPN实例的IRT后复制到该VPN实例，称为LocalCross；从远端PE学习到的VPNv4路由的ERT匹配某个VPN实例的IRT后复制到该VPN实例，称为RemoteCross。</td>
+<td>当IBGP路由和EBGP路由同时存在时，BGP优选从EBGP邻居学来的路由。<br><br>依次优选EBGP路由、IBGP路由、LocalCross路由、RemoteCross路由。<br><br><span style="background:rgba(92, 92, 92, 0.2)">PE上某个VPN实例的VPNv4路由的ERT匹配其他VPN实例的IRT后复制到该VPN实例，称为LocalCross；从远端PE学习到的VPNv4路由的ERT匹配某个VPN实例的IRT后复制到该VPN实例，称为RemoteCross。</span></td>
 </tr>
 <tr>
 <td>IGP Cost</td>
-<td>优选到下一跳IGP Cost最小的路由。  <br><br>说明： 在IGP中，对到达同一目的地址的不同路由，IGP根据本身的路由算法计算路由的度量值。</td>
+<td>优选到下一跳IGP Cost最小的路由。  <br><br><span style="background:rgba(92, 92, 92, 0.2)">说明： 在IGP中，对到达同一目的地址的不同路由，IGP根据本身的路由算法计算路由的度量值。</span></td>
 </tr>
 <tr>
 <td>是否支持负载均衡</td>
@@ -1365,7 +1365,7 @@
 </tr>
 <tr>
 <td>Originator_ID</td>
-<td>优选Originator_ID最小的设备发布的路由。<br><br><br>说明： 如果路由携带OriginatorID属性，选路过程中将比较OriginatorID的大小（不再比较Router ID），并优选Originator_ID最小的路由。</td>
+<td>优选Originator_ID最小的设备发布的路由。<br><br><span style="background:rgba(92, 92, 92, 0.2)">说明： 如果路由携带OriginatorID属性，选路过程中将比较OriginatorID的大小（不再比较Router ID），并优选Originator_ID最小的路由。</span></td>
 </tr>
 <tr>
 <td>Router ID</td>

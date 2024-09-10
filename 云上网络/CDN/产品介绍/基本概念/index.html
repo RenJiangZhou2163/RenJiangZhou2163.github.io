@@ -6,6 +6,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="CDN（Content Delivery Network，内容分发网络）是通过将源站内容分发至靠近用户的加速节点，使用户可以就近获得所需的内容，解决Internet网络拥挤的状况，提高用户访问的响应速度和成功率，从而提升您业务的使用体验。">
+      
       
         <meta name="author" content="renjiangzhou@163.com">
       
@@ -807,7 +809,7 @@
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. 内容分发网络
+      1. 基本概念
     </span>
   </a>
   
@@ -816,16 +818,7 @@
         <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 基本概念
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 参考链接
+      2. 参考链接
     </span>
   </a>
   
@@ -1354,7 +1347,7 @@
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. 内容分发网络
+      1. 基本概念
     </span>
   </a>
   
@@ -1363,16 +1356,7 @@
         <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 基本概念
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 参考链接
+      2. 参考链接
     </span>
   </a>
   
@@ -1403,10 +1387,9 @@
 
   <h1>基本概念</h1>
 
-<h2 id="1">1. 内容分发网络<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>CDN（Content Delivery Network，内容分发网络）是通过将源站内容分发至靠近用户的加速节点，使用户可以就近获得所需的内容，解决Internet网络拥挤的状况，提高用户访问的响应速度和成功率，从而提升您业务的使用体验。  </p>
 <p>您可以在CDN管理控制台添加加速域名，然后前往域名服务商处配置CNAME解析，即可启用CDN加速。还可以根据业务需要，为加速域名进行缓存、安全、性能优化配置，优化加速效果、缓解源站压力。</p>
-<h2 id="2">2. 基本概念<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h2 id="1">1. 基本概念<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p><strong>静态资源</strong></p>
@@ -1460,14 +1443,14 @@
 </li>
 <li>
 <p><strong>SSL/TLS</strong></p>
-<p>SSL（Secure Sockets Layer，安全通讯协议），是一个构架于TCP之上的安全套接层，是为网络通信提供安全及数据完整性的一种安全协议。标准化之后的SSL名称为TLS（Transport Layer Security，传输层安全协议）。</p>
+<p>SSL（Secure Sockets Layer，安全通讯协议），是一个构架于TCP之上的安全套接层，是为网络通信提供安全及数据完整性的一种安全协议。标准化之后的SSL名称为TLS（Transport Layer Security，传输层安全协议）。  </p>
 </li>
 <li>
 <p><strong>URL参数</strong></p>
 <p>根据业务需要判断是否启用该项配置，对用户请求URL中“?”之后的参数进行过滤，提高缓存命中率。</p>
 </li>
 </ul>
-<h2 id="3">3. 参考链接<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h2 id="2">2. 参考链接<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1480,7 +1463,7 @@
 <tbody>
 <tr>
 <td>华为云</td>
-<td>工作原理</td>
+<td>基本概念</td>
 <td>https://support.huaweicloud.com/productdesc-cdn/cdn_01_0071.html</td>
 <td>2023-12-18</td>
 </tr>
@@ -1500,6 +1483,62 @@
 
 
 
+
+  <h2 id="__comments">评论</h2>
+
+  <!-- Insert generated snippet here -->
+   
+  <script src="https://giscus.app/client.js"
+  data-repo="RenJiangZhou2163/RenJiangZhou2163.github.io"
+  data-repo-id="R_kgDOMpdFqw"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOMpdFq84CiByu"
+  data-mapping="title"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  crossorigin="anonymous"
+  async>
+</script>
+
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
               </article>

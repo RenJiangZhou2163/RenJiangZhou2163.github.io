@@ -6,6 +6,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="当用户访问使用CDN服务的网站时，本地DNS服务器通过CNAME方式将最终域名请求重定向到CDN服务。CDN通过一组预先定义好的策略（如内容类型、地理区域、网络负载状况等），将当时能够最快响应用户的CDN节点IP地址提供给用户，使用户可以以最快的速度获得网站内容。使用CDN后的HTTP请求处理流程如下。">
+      
       
         <meta name="author" content="renjiangzhou@163.com">
       
@@ -828,16 +830,7 @@
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. 工作原理
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 参考链接
+      1. 参考链接
     </span>
   </a>
   
@@ -1345,16 +1338,7 @@
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. 工作原理
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 参考链接
+      1. 参考链接
     </span>
   </a>
   
@@ -1385,7 +1369,6 @@
 
   <h1>工作原理</h1>
 
-<h2 id="1">1. 工作原理<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>当用户访问使用CDN服务的网站时，本地DNS服务器通过CNAME方式将最终域名请求重定向到CDN服务。CDN通过一组预先定义好的策略（如内容类型、地理区域、网络负载状况等），将当时能够最快响应用户的CDN节点IP地址提供给用户，使用户可以以最快的速度获得网站内容。使用CDN后的HTTP请求处理流程如下。</p>
 <p><a class="glightbox" href="../images/af4b32fcb02c525ac465a3fe3563d293_MD5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/af4b32fcb02c525ac465a3fe3563d293_MD5.png" title="点击放大" /></a></p>
 <p>HTTP请求流程说明：</p>
@@ -1402,7 +1385,7 @@
 </ul>
 </li>
 </ol>
-<h2 id="2">2. 参考链接<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h2 id="1">1. 参考链接<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1435,6 +1418,62 @@
 
 
 
+
+  <h2 id="__comments">评论</h2>
+
+  <!-- Insert generated snippet here -->
+   
+  <script src="https://giscus.app/client.js"
+  data-repo="RenJiangZhou2163/RenJiangZhou2163.github.io"
+  data-repo-id="R_kgDOMpdFqw"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOMpdFq84CiByu"
+  data-mapping="title"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  crossorigin="anonymous"
+  async>
+</script>
+
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
               </article>

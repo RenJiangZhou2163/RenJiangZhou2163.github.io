@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-cdnecs" class="md-skip">
+        <a href="#1" class="md-skip">
           跳转至
         </a>
       
@@ -1000,51 +1000,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-cdnecs" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. CDN加速基于ECS搭建的网站
+      1. 场景介绍
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="1. CDN加速基于ECS搭建的网站">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.1. 场景介绍
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.2. 方案概述
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.3. 方案优势
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 参考链接
+      2. 方案概述
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 方案优势
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 参考链接
     </span>
   </a>
   
@@ -1376,51 +1361,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-cdnecs" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. CDN加速基于ECS搭建的网站
+      1. 场景介绍
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="1. CDN加速基于ECS搭建的网站">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.1. 场景介绍
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.2. 方案概述
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.3. 方案优势
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 参考链接
+      2. 方案概述
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 方案优势
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 参考链接
     </span>
   </a>
   
@@ -1451,20 +1421,19 @@
 
   <h1>CDN加速基于ECS搭建的网站</h1>
 
-<h2 id="1-cdnecs">1. CDN加速基于ECS搭建的网站<a class="headerlink" href="#1-cdnecs" title="Permanent link">&para;</a></h2>
-<h3 id="11">1.1. 场景介绍<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<h2 id="1">1. 场景介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>ECS（弹性云服务器）是由CPU、内存、操作系统、云硬盘组成的基础的计算组件，可以根据业务灵活配置，节约大量的硬件成本。某客户将一论坛网站部署在华为云ECS上，并通过域名访问该论坛。初期业务量较小，用户访问流畅，随着业务越做越大，访问量骤增，陆续有用户反馈访问速度慢等问题。客户决定使用华为云CDN提高终端用户访问速度、提升用户体验。</p>
-<h3 id="12">1.2. 方案概述<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<h2 id="2">2. 方案概述<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <p>华为云CDN可以有效加速网站，为用户提供良好的体验。通过CDN加速搭建在ECS服务器上的网站，这样构造的业务系统可以在降低成本的同时，提高终端用户使用感受。</p>
 <p><strong>业务流程</strong>：当终端用户发起访问请求时，会首先通过CDN查找对此域名响应速度较快的CDN节点，并查询此节点是否有缓存终端用户请求的内容。如果CDN节点有缓存用户所需资源，直接将资源返回给用户；如果CDN节点无缓存，则回源请求资源返回给用户，同时将资源缓存到CDN节点。</p>
 <p><a class="glightbox" href="../images/a94e64f010b2afbbe1a85e69cdb1c46a_MD5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/a94e64f010b2afbbe1a85e69cdb1c46a_MD5.png" title="点击放大" /></a></p>
-<h3 id="13">1.3. 方案优势<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<h2 id="3">3. 方案优势<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <ul>
 <li>用户访问网站资源，全部通过CDN，降低源站压力。</li>
 <li>使用CDN流量，单价低于ECS直接访问外网流量，可以节约50%到57%的带宽成本，详见 <strong><a href="https://support.huaweicloud.com/price-bestpract/zh-cn_topic_0090054488.html">通过CDN减少公网带宽费用</a></strong>。</li>
 <li>终端用户从距离最近的CDN节点获取资源，减少网络传输距离，保证静态资源质量。</li>
 </ul>
-<h2 id="2">2. 参考链接<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h2 id="4">4. 参考链接<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1497,6 +1466,62 @@
 
 
 
+
+  <h2 id="__comments">评论</h2>
+
+  <!-- Insert generated snippet here -->
+   
+  <script src="https://giscus.app/client.js"
+  data-repo="RenJiangZhou2163/RenJiangZhou2163.github.io"
+  data-repo-id="R_kgDOMpdFqw"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOMpdFq84CiByu"
+  data-mapping="title"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  crossorigin="anonymous"
+  async>
+</script>
+
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
               </article>

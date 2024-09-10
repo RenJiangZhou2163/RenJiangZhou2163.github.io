@@ -6,6 +6,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="缓存预热是通过模拟用户请求，将对应的资源缓存到CDN节点，用户能直接从最近的CDN节点获取到最新的资源，达到加速访问的效果。">
+      
       
         <meta name="author" content="renjiangzhou@163.com">
       
@@ -1071,40 +1073,25 @@
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. 缓存预热
+      1. 典型应用场景
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="1. 缓存预热">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.1. 典型应用场景
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.2. 注意事项
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 参考链接
+      2. 注意事项
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 参考链接
     </span>
   </a>
   
@@ -1369,40 +1356,25 @@
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. 缓存预热
+      1. 典型应用场景
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="1. 缓存预热">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.1. 典型应用场景
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.2. 注意事项
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 参考链接
+      2. 注意事项
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 参考链接
     </span>
   </a>
   
@@ -1433,13 +1405,12 @@
 
   <h1>缓存预热</h1>
 
-<h2 id="1">1. 缓存预热<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>缓存预热是通过模拟用户请求，将对应的资源缓存到CDN节点，用户能直接从最近的CDN节点获取到最新的资源，达到加速访问的效果。</p>
-<h3 id="11">1.1. 典型应用场景<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<h2 id="1">1. 典型应用场景<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p><strong>首次接入：</strong> 当您的域名首次接入CDN时，您可以将视频等大文件预热，提升用户体验。</p>
 <p><strong>安装包发布：</strong> 新版本安装包或是升级包发布前，提前将资源预热至CDN加速节点。正式上线后，海量用户的下载请求将直接由全球加速节点响应，提升下载速度的同时，大幅度降低源站压力。</p>
 <p><strong>运营活动：</strong> 运营活动发布前，提前将活动页涉及到的静态资源预热至CDN加速节点。活动开始后，用户访问中所有静态资源均由加速节点响应，海量带宽储备保障用户服务可用性，提升用户体验。</p>
-<h3 id="12">1.2. 注意事项<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<h2 id="2">2. 注意事项<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <ul>
 <li>只有处于“已开启”和“配置中”状态且未被禁用的域名才能执行缓存预热操作。相关域名状态说明请参见<a href="https://support.huaweicloud.com/usermanual-cdn/cdn_01_0011.html#cdn_01_0011__section206841653191211">查看域名基本信息</a>。</li>
 <li>预热完成时间取决于用户提交预热文件数量、文件大小以及网络状况等诸多因素。</li>
@@ -1450,7 +1421,7 @@
 <li>如果未开启“缓存遵循源站”且预热对应资源的缓存过期时间设置为0，CDN无法缓存该预热资源，预热将会失败。</li>
 <li>您也可以通过<a href="https://support.huaweicloud.com/api-cdn/cdn_02_0028.html">API接口</a>的方式创建域名的缓存预热任务。</li>
 </ul>
-<h2 id="2">2. 参考链接<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h2 id="3">3. 参考链接<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1476,10 +1447,69 @@
 
 
 
+  
+  
 
 
 
 
+
+
+  <h2 id="__comments">评论</h2>
+
+  <!-- Insert generated snippet here -->
+   
+  <script src="https://giscus.app/client.js"
+  data-repo="RenJiangZhou2163/RenJiangZhou2163.github.io"
+  data-repo-id="R_kgDOMpdFqw"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOMpdFq84CiByu"
+  data-mapping="title"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  crossorigin="anonymous"
+  async>
+</script>
+
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
               </article>
